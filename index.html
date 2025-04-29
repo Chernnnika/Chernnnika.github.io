@@ -1,40 +1,195 @@
 <!DOCTYPE html>
-<html>
+<html lang="uk">
 <head>
-  <title>Моє Резюме</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM на базі PowerApps</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script>
+    function setLanguage() {
+      const userLang = navigator.language || navigator.userLanguage;
+      const isEnglish = userLang.startsWith('en');
+
+      const texts = {
+        ua: {
+          title: 'CRM на базі PowerApps',
+          heroTitle: 'CRM під ключ на базі PowerApps',
+          heroSubtitle: 'Автоматизуйте свій бізнес вже сьогодні',
+          cta: 'Отримати консультацію',
+          aboutTitle: 'Що таке CRM на PowerApps?',
+          aboutText: 'Ми створюємо індивідуальні CRM-системи, повністю адаптовані під ваші процеси. PowerApps — це сучасна платформа від Microsoft для швидкої розробки додатків без зайвих витрат.',
+          advantages: ['Інтеграція з Outlook, Excel, Teams, SharePoint', 'Автоматизація заявок, клієнтів, проєктів', 'Запуск від 5 днів', 'Безпека Microsoft Azure'],
+          forWhomTitle: 'Кому підійде',
+          forWhom: ['Агентствам нерухомості', 'IT-компаніям', 'Клінікам та салонам', 'Освітнім центрам', 'Проєктним бюро'],
+          processTitle: 'Як ми працюємо',
+          process: ['Безкоштовна консультація', 'Проєктування під вашу задачу', 'Розробка та впровадження', 'Підтримка та розвиток'],
+          formTitle: 'Залишити заявку',
+          footer: '© 2025 Chernnnika Inc. Всі права захищені.'
+        },
+        en: {
+          title: 'CRM based on PowerApps',
+          heroTitle: 'Custom CRM based on PowerApps',
+          heroSubtitle: 'Automate your business today',
+          cta: 'Get a Consultation',
+          aboutTitle: 'What is CRM on PowerApps?',
+          aboutText: 'We create custom CRM systems fully adapted to your processes. PowerApps is a modern platform by Microsoft for fast and cost-effective app development.',
+          advantages: ['Integration with Outlook, Excel, Teams, SharePoint', 'Automation of requests, clients, projects', 'Launch in 5 days', 'Security from Microsoft Azure'],
+          forWhomTitle: 'Who it is for',
+          forWhom: ['Real estate agencies', 'IT companies', 'Clinics and salons', 'Educational centers', 'Project bureaus'],
+          processTitle: 'How we work',
+          process: ['Free consultation', 'Design according to your needs', 'Development and implementation', 'Support and growth'],
+          formTitle: 'Leave a request',
+          footer: '© 2025 Chernnnika Inc. All rights reserved.'
+        }
+      };
+
+      const lang = isEnglish ? 'en' : 'ua';
+
+      if (!texts[lang]) return;
+
+      document.title = texts[lang].title;
+      document.getElementById('hero-title').innerText = texts[lang].heroTitle;
+      document.getElementById('hero-subtitle').innerText = texts[lang].heroSubtitle;
+      document.getElementById('cta-button').innerText = texts[lang].cta;
+      document.getElementById('about-title').innerText = texts[lang].aboutTitle;
+      document.getElementById('about-text').innerText = texts[lang].aboutText;
+      document.getElementById('advantages-list').innerHTML = texts[lang].advantages.map(item => `<li>${item}</li>`).join('');
+      document.getElementById('forwhom-title').innerText = texts[lang].forWhomTitle;
+      document.getElementById('forwhom-list').innerHTML = texts[lang].forWhom.map(item => `<li>${item}</li>`).join('');
+      document.getElementById('process-title').innerText = texts[lang].processTitle;
+      document.getElementById('process-list').innerHTML = texts[lang].process.map(item => `<li>${item}</li>`).join('');
+      document.getElementById('form-title').innerText = texts[lang].formTitle;
+      document.getElementById('footer-text').innerText = texts[lang].footer;
+    }
+    document.addEventListener('DOMContentLoaded', setLanguage);
+  </script>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      padding: 0;
-    }
-    h1 {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f9f9f9;
       color: #333;
-      border-bottom: 2px solid #333;
-      padding-bottom: 10px;
+    }
+    header {
+      background: linear-gradient(135deg, #0078D7, #0053A0);
+      color: white;
+      padding: 5rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    header p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .cta-button {
+      background: white;
+      color: #0078D7;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s;
+    }
+    .cta-button:hover {
+      background: #0053A0;
+      color: white;
+    }
+    main {
+      padding: 4rem 1rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    section {
+      margin-bottom: 4rem;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
     h2 {
-      color: #555;
-      margin-top: 20px;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+      color: #0078D7;
     }
-    p {
-      margin: 5px 0;
+    ul, ol {
+      padding-left: 1.5rem;
     }
-    strong {
-      font-weight: bold;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input, textarea {
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button {
+      background: #0078D7;
+      color: white;
+      border: none;
+      padding: 1rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #0053A0;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #eee;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <h1>Черномаз Михайло</h1>
-  <p><strong>Контактна інформація:</strong> телефон: (050) 232-4057, електронна пошта: chernnnika1@gmail.com</p>
-  <h2>Досвід роботи</h2>
-  <p><strong>Назва позиції:</strong> Розробник</p>
-  <p><strong>Період:</strong> лютий 2019 - теперішній час</p>
-  <p><strong>Опис:</strong> Відповідальний за розробку та підтримку внутрішніх систем</p>
-  <h2>Освіта</h2>
-  <p><strong>Заклад:</strong> Національний технічний університет України «Київський політехнічний інститут імені Ігоря Сікорського»</p>
-  <p><strong>Спеціальність:</strong> Бакалавр інформаційних технологій</p>
-  <p><strong>Період:</strong> вересень 2017 - травень 2021</p>
+
+<header>
+  <h1 id="hero-title"></h1>
+  <p id="hero-subtitle"></p>
+  <a href="#contact" class="cta-button" id="cta-button"></a>
+</header>
+
+<main>
+  <section>
+    <h2 id="about-title"></h2>
+    <p id="about-text"></p>
+    <ul id="advantages-list"></ul>
+  </section>
+
+  <section>
+    <h2 id="forwhom-title"></h2>
+    <ul id="forwhom-list"></ul>
+  </section>
+
+  <section>
+    <h2 id="process-title"></h2>
+    <ol id="process-list"></ol>
+  </section>
+
+  <section id="contact">
+    <h2 id="form-title"></h2>
+    <form>
+      <input type="text" placeholder="Name / Ім'я" required>
+      <input type="email" placeholder="Email" required>
+      <input type="tel" placeholder="Phone / Телефон" required>
+      <textarea placeholder="Describe your task / Опишіть вашу задачу" rows="4" required></textarea>
+      <button type="submit">Send / Надіслати</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p id="footer-text"></p>
+  <p>Email: info@chernnnika.example</p>
+</footer>
+
 </body>
 </html>
