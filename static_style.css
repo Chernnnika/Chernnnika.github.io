@@ -1,0 +1,273 @@
+/* Premium Stylesheet for Chernnnika Website - Static Version */
+
+/* --- Google Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* --- CSS Variables (Color Palette & Fonts) --- */
+:root {
+    --font-primary: 'Inter', sans-serif;
+
+    --color-bg-dark: #0A192F; /* Deep Navy Blue */
+    --color-bg-dark-lighter: #112240; /* For cards on dark BG */
+    --color-bg-dark-footer: #081424; /* Slightly darker for footer */
+    --color-bg-light: #F8F9FA;    /* Off-White / Very Light Gray */
+
+    --color-accent-primary: #C69F61; /* Muted Gold/Bronze - Richer */
+    --color-accent-secondary: #2EC4B6; /* Vibrant Teal - Modern CTA */
+
+    --color-text-on-dark: #E0E6F1;      /* Light Gray/Off-White on Dark BG */
+    --color-text-on-dark-muted: #A8B2D1; /* Muted text on Dark BG */
+    --color-text-on-light: #2D3748;     /* Dark Slate Gray on Light BG */
+    --color-text-on-light-muted: #5A6778; /* Muted text on Light BG */
+
+    --color-border-dark-theme: #1E2D42; /* Subtle border on dark theme */
+    --color-border-light-theme: #E2E8F0; /* Subtle border on light theme */
+
+    --header-height: 80px;
+}
+
+/* --- General Body Styles --- */
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-on-dark);
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+    font-size: 16px; /* Base font size */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- Headings --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    color: var(--color-text-on-dark); /* Default for dark theme */
+    margin-top: 0;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive font size */
+    font-weight: 700;
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--color-accent-primary);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+}
+
+h4 {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+}
+
+/* --- Paragraphs & Links --- */
+p {
+    margin-bottom: 1.5rem;
+    color: var(--color-text-on-dark-muted);
+}
+
+a {
+    color: var(--color-accent-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-accent-primary);
+}
+
+/* --- Utility Classes --- */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1rem; /* Vertical padding for sections */
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-light {
+    background-color: var(--color-bg-light);
+}
+
+.section-light h1, .section-light h2, .section-light h3, .section-light h4, .section-light h5, .section-light h6 {
+    color: var(--color-text-on-light);
+}
+
+.section-light h2 {
+     color: var(--color-accent-primary); /* Keep accent for H2 */
+}
+
+.section-light p {
+    color: var(--color-text-on-light-muted);
+}
+
+/* --- Header / Navigation --- */
+header {
+    background-color: rgba(10, 25, 47, 0.85); /* Semi-transparent dark BG */
+    backdrop-filter: blur(10px);
+    padding: 0 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+header.scrolled {
+    background-color: var(--color-bg-dark);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-accent-primary);
+}
+
+/* --- Hero Section --- */
+#hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: var(--header-height); /* Offset for fixed header */
+    position: relative;
+}
+
+#hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(10, 25, 47, 0.7) 0%, rgba(28, 43, 58, 0.9) 100%),
+                url('https://www.transparenttextures.com/patterns/debut-light.png'); /* Placeholder texture */
+    z-index: -1;
+    opacity: 0.8;
+}
+
+#hero h1 {
+    color: var(--color-text-on-dark);
+    margin-bottom: 1rem;
+}
+
+#hero p {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    color: var(--color-text-on-dark-muted);
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+}
+
+/* --- Sections (About, Services, Why Us, Contact) --- */
+section {
+    padding: 5rem 0;
+}
+
+/* Example: Services Section - Bento Grid */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.bento-item {
+    background-color: var(--color-bg-dark-lighter);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-border-dark-theme);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.bento-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.bento-item .icon {
+    font-size: 2.5rem; /* Placeholder for icon */
+    color: var(--color-accent-secondary);
+    margin-bottom: 1rem;
+}
+
+.bento-item h3 {
+    color: var(--color-text-on-dark);
+    margin-bottom: 0.5rem;
+}
+
+.bento-item p {
+    color: var(--color-text-on-dark-muted);
+    font-size: 0.95rem;
+}
+
+/* --- Contact Details --- */
+.contact-details {
+    margin-top: 2rem;
+}
+
+.contact-details p {
+    margin-bottom: 0.5rem;
+}
+
+.contact-details strong {
+    color: var(--color-text-on-light);
+    font-weight: 600;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--color-bg-dark-footer);
+    color: var(--color-text-on-dark-muted);
+    text-align: center;
+    padding: 2.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 0;
+    color: var(--color-text-on-dark-muted);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    .container {
+        padding: 3rem 1rem;
+    }
+    #hero p {
+        font-size: 1rem;
+    }
+}
